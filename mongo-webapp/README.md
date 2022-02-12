@@ -2,7 +2,7 @@
 Reference -  https://www.youtube.com/watch?v=s_o8dwzRlu4&list=PUdngmbVKX1Tgre699-XLlUA&index=7
 
 Sample Webapp loads data from Mong DB database  
-Two pods - webapp and Mongo DB
+Two deployments, one pod of each - webapp and Mongo DB
 
 ##### Steps
 Create ConfigMap: mongo-config.yaml 
@@ -10,7 +10,7 @@ kind: ConfigMap, reference to mongo-service (defined inside mongo.yaml file)
 
 Create Secret: mongo-secret.yaml for mongoDB base64 encoded username and password
 Base64 encoding ex: echo -n mongouser > base64
-kind: Secret,  referenced by deployment
+kind: Secret,  referenced by deploymentTwo deployments, one pod of each - webapp and Mongo DB
 
 Create mongo Deployment + service: mongo.yaml for internal mongo db application
 kind: deployment, mongo db container setup, ref to secrets for mongo user/pwd creation
