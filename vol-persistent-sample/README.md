@@ -1,16 +1,30 @@
 
 
 ### create Storage class
-kubectl create -f mysc.yaml 
+  Local file system  <br>
+  Allow expansion set to true
+```
+$ kubectl create -f mysc.yaml 
+```
+
 
 ### create Persistent Volume 
-kubectl create -f mypv.yaml 
+  storage size : 1Gi  <br>
+  accessModes: ReadWriteOnce  <br>
+  persistentVolumeReclaimPolicy: Recycle  <br>
+```
+$ kubectl create -f mypv.yaml 
+```
+
 
 ### create Persistent Volume Claim 
-kubectl create -f mypvc.yaml 
-
+ accessModes: ReadWriteOnce  <br>
+ storage request size : 100Mi  <br>
+```
+$ kubectl create -f mypvc.yaml 
+```
 #### check volume status 
-
+verify that status showing bound  <br>
 ```
 $ kubectl get pv
 NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS    REASON   AGE
