@@ -1,0 +1,29 @@
+# Sample volumemount
+#
+#  /var/data volume is mounted as /out for busybox1 
+#  so /out will be root for the container 
+# /out/file.txt will be upated as /var/data/file.tx in the file system of the volume
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-sample-pod
+spec:
+  containers:
+  - image: busybox
+    name: busybox1
+    resources: {}
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo hello $(date) .. >> /out/file.txt; sleep 5;done"]
+    volumeMounts:
+    - mountPath: /out
+      name: test-volume
+  volumes:
+  - name: test-volume
+    hostPath:
+      path: /var/data
+      type: DirectoryOrCreate
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+
+
