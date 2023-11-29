@@ -30,12 +30,12 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 
 ### Application Layout
 <p align="center">
-  <img src="./kiali-dashboard-graph-traffic.png" width="40%" alt="Kiali Dashboard - Graph Traffic">
+  <img src="./kiali-dashboard-graph-traffic.png" width="45%" alt="Kiali Dashboard - Graph Traffic">
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="./kiali-dashboard-workloads.png" width="40%" alt="Kiali Dashboard - workloads">
-  <img src="./kiali-dashboard-applications.png" width="40%" alt="Kiali Dashboard - Applications">
+  <img src="./kiali-dashboard-workloads.png" width="45%" alt="Kiali Dashboard - workloads">
+  <img src="./kiali-dashboard-applications.png" width="45%" alt="Kiali Dashboard - Applications">
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="./kiali-dashboard-services.png" width="40%" alt="Kiali Dashboard - Services">
+  <img src="./kiali-dashboard-services.png" width="45%" alt="Kiali Dashboard - Services">
 </p>
 
 
@@ -102,14 +102,11 @@ istioctl dashboard kiali
 
 In the left navigation menu, select Graph and in the Namespace drop down, select default.
 
-
 The Kiali dashboard shows an overview of mesh with the relationships between the services in the Bookinfo sample application. It also provides filters to visualize the traffic flow.
-
 
 
 ### Fetch the service and App information
 kubectl get all -n istio-system
-
 ```
 Output:
 NAME                                       READY   STATUS    RESTARTS   AGE
@@ -198,7 +195,6 @@ kubectl delete -f ~/work/istio-1.20.0/samples/addons
 kubectl delete -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
 
 kubectl delete -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
-
 ```
 
 ### Reference links:
