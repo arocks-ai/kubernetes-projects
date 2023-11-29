@@ -1,6 +1,9 @@
-# kubernetes-projects
-Kubernetes Sample projects
+# kubernetes and related projects
 
+## Istio - projects
+
+## K8 - projects
+Kubernetes Sample projects
 
 - [Sample MongoDB - Webapp Application](./mongo-webapp/README.md)
 - [Sample Persistent Storage usage with StorageClass](./vol-persistent-sample/README.md)
