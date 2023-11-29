@@ -29,9 +29,13 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 ```
 
 ### Application Layout
-<p>
-  <img src="./kiali-dashboard-graph-traffic.png" width="50%" alt="Kiali Dashboard Graph Traffic">
-  <img src="./kiali-dashboard-workloads.png" width="50%" alt="Kiali Dashboard workloads">
+<p align="center">
+  <img src="./kiali-dashboard-graph-traffic.png" width="40%" alt="Kiali Dashboard - Graph Traffic">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="./kiali-dashboard-workloads.png" width="40%" alt="Kiali Dashboard - workloads">
+  <img src="./kiali-dashboard-applications.png" width="40%" alt="Kiali Dashboard - Applications">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="./kiali-dashboard-services.png" width="40%" alt="Kiali Dashboard - Services">
 </p>
 
 
