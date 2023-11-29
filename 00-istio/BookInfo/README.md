@@ -5,7 +5,7 @@ BookInfo is sample application with the following business capcabilites
 - Book Info / Products page
 - Book Details 
 
-Tasks:
+### Tasks:
 - Deploy the app (Add contents??)
 - All the traffic from outside network
 - View the telemetry / dashboard
@@ -78,11 +78,15 @@ echo "$SECURE_INGRESS_PORT" #443
 # Set GATEWAY_URL:
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo "$GATEWAY_URL"         # 127.0.0.1:80
+```
 
-### Verify external access
+### Verify the external access
+View the Bookinfo product page from the browser.   ex: http://10.108.229.139/productpage
+```
+# Get the product page URL 
+echo "http://$GATEWAY_URL/productpage"      
 
-# View the Bookinfo product page using a browser.   ex: http://10.108.229.139/productpage
-echo "http://$GATEWAY_URL/productpage"      # Paste the output from the previous command into your
+# Open the browsUer and past the above URL
 ```
 
 ### Telemetry - View the dashboard
