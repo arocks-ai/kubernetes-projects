@@ -1,19 +1,17 @@
 Reference links:
-
 - [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
 - [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)
 
 
 Download Istio
 '''
-# Download the latest version
+ # Download the latest version
 curl -L https://istio.io/downloadIstio | sh -
-
-# Download 1.20.0 version 
+ # Download 1.20.0 version 
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.0 TARGET_ARCH=x86_64 sh -
 
-# The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.
-# Add the istioctl client to path
+ # The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.
+ # Add the istioctl client to path
 cd istio-1.20.0
 export PATH=$PWD/bin:$PATH
 '''
