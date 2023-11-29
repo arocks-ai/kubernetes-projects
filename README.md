@@ -2,11 +2,8 @@
 Kubernetes Sample projects
 
 
-### mongo-webapp [Sample MongoDB - Webapp Application](./mongo-webapp/README.md)
-Sample Webapp loads data from Mong DB database  
-Two deployments, one pod of each - webapp and Mongo DB  
-
-### Persistent Storage  [Sample Persistent Storage usage with StorageClass](./vol-persistent-sample)
+Webapp loads data from Mongo DB database [Sample MongoDB - Webapp Application](./mongo-webapp/README.md)
+Persistent Storage  [Sample Persistent Storage usage with StorageClass](./vol-persistent-sample/README.md)
 Refer contents of the following K8s objects     <br>
  * StorageClass        <br>
  * PersistentVolume    <br>
