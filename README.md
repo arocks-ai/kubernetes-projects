@@ -1,7 +1,9 @@
 # kubernetes and related projects
 
 ## Istio - projects
-- [Istio projects Main](./00-istio/README.md)
+Code samples:
+- [Istio Installation](./00-istio/install/README.md)
+- [Deploy BookInfo sample Application and view dashboard](./00-istio/BookInfo/README.md)
 
 
 ## K8 - projects
