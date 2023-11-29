@@ -29,12 +29,11 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 ```
 
 ### Application Layout
-<p align="left">
+<p>
   <img src="./kiali-dashboard-graph-traffic.png" width="50%" alt="Kiali Dashboard Graph Traffic">
-</p>
-<p align="right">
   <img src="./kiali-dashboard-workloads.png" width="50%" alt="Kiali Dashboard workloads">
 </p>
+
 
 ### Open the application to outside traffic
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
