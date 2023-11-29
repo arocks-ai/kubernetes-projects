@@ -1,4 +1,4 @@
-# kubernetes-playground
+# kubernetes-projects
 Kubernetes Sample projects
 
 
