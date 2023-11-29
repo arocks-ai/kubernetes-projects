@@ -1,8 +1,3 @@
-### Reference links:
-- [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
-- [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)
-
-
 ### Download Istio
 ```
 # Download the latest version
@@ -48,3 +43,6 @@ kubectl delete namespace istio-system
 kubectl label namespace default istio-injection-
 ```
 
+### Reference links:
+- [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
+- [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)

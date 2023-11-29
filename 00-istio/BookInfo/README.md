@@ -1,9 +1,17 @@
-### Reference links:
-- [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
-- [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)
+## Deploy Bookinfo sample application
+BookInfo is sample application with the following business capcabilites
+- Book review
+- Book Rating
+- Book Info / Products page
+- Book Details 
 
+Tasks:
+- Deploy the app (Add contents??)
+- All the traffic from outside network
+- View the telemetry / dashboard
+- Cleanup
 
-### Deploy Bookinfo sample application
+### Deploy Bookinfo App
 ```
 # Deploy the Bookinfo sample application. 
 # The application will start. As each pod becomes ready, the Istio sidecar will be deployed along with it.
@@ -66,7 +74,7 @@ echo "$GATEWAY_URL"         # 127.0.0.1:80
 echo "http://$GATEWAY_URL/productpage"      # Paste the output from the previous command into your
 ```
 
-## Telemetry - View the dashboard
+### Telemetry - View the dashboard
 
 ```
 # Install Kiali and the other addons and wait for them to be deployed.
@@ -179,3 +187,7 @@ kubectl delete -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gate
 kubectl delete -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
 
 ```
+
+### Reference links:
+- [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
+- [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)
