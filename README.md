@@ -2,7 +2,7 @@
 Kubernetes Sample projects
 
 
-### mongo-webapp [Sample MongoDB - Webapp Application](./mongo-webapp)
+### mongo-webapp [Sample MongoDB - Webapp Application](./mongo-webapp/README.md)
 Sample Webapp loads data from Mong DB database  
 Two deployments, one pod of each - webapp and Mongo DB  
 
