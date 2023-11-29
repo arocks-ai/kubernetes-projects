@@ -5,16 +5,15 @@ Reference links:
 
 Download Istio
 '''
- # Download the latest version
+ 
  \# Download the latest version
- <!-- # Download the latest version -->
-
-curl -L https://istio.io/downloadIstio | sh -
- # Download 1.20.0 version 
+ curl -L https://istio.io/downloadIstio | sh -
+ 
+ \# Download 1.20.0 version 
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.0 TARGET_ARCH=x86_64 sh -
 
- # The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.
- # Add the istioctl client to path
+\# The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.
+\# Add the istioctl client to path
 cd istio-1.20.0
 export PATH=$PWD/bin:$PATH
 '''
