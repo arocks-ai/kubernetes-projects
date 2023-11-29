@@ -4,7 +4,7 @@ Reference links:
 
 
 Download Istio
-'''
+```
  
  \# Download the latest version
  curl -L https://istio.io/downloadIstio | sh -
@@ -16,10 +16,10 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.0 TARGET_ARCH=x86_64
 \# Add the istioctl client to path
 cd istio-1.20.0
 export PATH=$PWD/bin:$PATH
-'''
+```
 
 Install Istio
-'''
+```
 # Configure to use demo profile 
 istioctl install --set profile=demo -y
  # Istio core installed
@@ -36,10 +36,10 @@ kubectl label namespace default istio-injection=enabled
 
 # check the label
 kubectl label namespace default istio-injection=enabled
-'''
+```
 
 Uninstall
-'''
+```
 istioctl uninstall -y --purge
 
 # The istio-system namespace is not removed by default
@@ -47,5 +47,5 @@ kubectl delete namespace istio-system
 
 # remove the label
 kubectl label namespace default istio-injection-
-'''
+```
 
