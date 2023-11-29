@@ -84,9 +84,11 @@ kubectl rollout status deployment/kiali -n istio-system
 
 # send a some requests to the productpage service
 for i in $(seq 1 100); do curl -s -o /dev/null "http://$GATEWAY_URL/productpage"; done
+
+# Launch the dashboard
+istioctl dashboard kiali
 ```
 
-istioctl dashboard kiali
 In the left navigation menu, select Graph and in the Namespace drop down, select default.
 
 
