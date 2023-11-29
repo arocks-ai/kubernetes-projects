@@ -5,10 +5,10 @@
 
 ### Download Istio
 ```
- # Download the latest version
- curl -L https://istio.io/downloadIstio | sh -
+# Download the latest version
+curl -L https://istio.io/downloadIstio | sh -
  
- # Download 1.20.0 version 
+# Download 1.20.0 version 
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.0 TARGET_ARCH=x86_64 sh -
 
 # The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.

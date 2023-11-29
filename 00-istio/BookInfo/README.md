@@ -1,15 +1,13 @@
-## Reference links:  
-'''
-https://istio.io/latest/docs/setup/getting-started/
-https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8
-'''
+### Reference links:
+- [Istio getting started official guide](https://istio.io/latest/docs/setup/getting-started/)
+- [Istio tutorial](https://medium.com/google-cloud/istio-service-mesh-101-part-1-3-f07a8fedeea8)
 
-Deploy Bookinfo sample application
-'''
+
+### Deploy Bookinfo sample application
+```
 # Deploy the Bookinfo sample application. 
 # The application will start. As each pod becomes ready, the Istio sidecar will be deployed along with it.
 kubectl apply -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
-
 
 # List services:
 kubectl get services
@@ -20,13 +18,12 @@ kubectl get services
 # Check if the app is running inside the cluster and serving HTML pages by checking for the page title in the response:
 kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS productpage:9080/productpage | grep -o "<title>.*</title>"
  # Sample output: <title>Simple Bookstore App</title>
-'''
+```
 
-Open the application to outside traffic
-----------------------------------------
+### Open the application to outside traffic
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
 
-'''
+```
 # Associate this application with the Istio gateway:
 
 kubectl apply -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
@@ -35,14 +32,13 @@ kubectl apply -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gatew
 
 # Ensure that there are no issues with the configuration:
 istioctl analyze
-'''
+```
 
 
-Determining the ingress IP and ports
-----------------------------------------
+### Determining the ingress IP and ports
 set the INGRESS_HOST and INGRESS_PORT variables for accessing the gateway.
 
-'''
+```
 # Minikube - Run in a new terminal window
 # start a Minikube tunnel that sends traffic to your Istio Ingress Gateway. 
 # This will provide an external load balancer, EXTERNAL-IP, for service/istio-ingressgateway.
@@ -64,15 +60,15 @@ echo "$SECURE_INGRESS_PORT" #443
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo "$GATEWAY_URL"         # 127.0.0.1:80
 
-Verify external access
-----------------------------
+### Verify external access
+
 # View the Bookinfo product page using a browser.   ex: http://10.108.229.139/productpage
 echo "http://$GATEWAY_URL/productpage"      # Paste the output from the previous command into your
-'''
+```
 
 ## Telemetry - View the dashboard
 
-'''
+```
 # Install Kiali and the other addons and wait for them to be deployed.
 
 kubectl apply -f ~/work/istio-1.20.0/samples/addons
@@ -80,7 +76,7 @@ kubectl rollout status deployment/kiali -n istio-system
 
 # send a some requests to the productpage service
 for i in $(seq 1 100); do curl -s -o /dev/null "http://$GATEWAY_URL/productpage"; done
-'''
+```
 
 istioctl dashboard kiali
 In the left navigation menu, select Graph and in the Namespace drop down, select default.
@@ -90,10 +86,10 @@ The Kiali dashboard shows an overview of mesh with the relationships between the
 
 
 
-## Fetch the service and App information
+### Fetch the service and App information
 kubectl get all -n istio-system
 
-'''
+```
 Output:
 NAME                                       READY   STATUS    RESTARTS   AGE
 pod/grafana-7bd5db55c4-7cvz7               1/1     Running   0          147m
@@ -133,12 +129,12 @@ replicaset.apps/istiod-8d5c88bcc                 1         1         1       163
 replicaset.apps/jaeger-78756f7d48                1         1         1       147m
 replicaset.apps/kiali-55bfd5c754                 1         1         1       147m
 replicaset.apps/prometheus-67f6764db9            1         1         1       147m
-'''
+```
 
 
 kubectl get pods -ALL
 
-'''
+```
 Output:
 NAMESPACE              NAME                                        READY   STATUS      RESTARTS      AGE    L
 default                details-v1-7745b6fcf4-v8swp                 2/2     Running     0             163m   
@@ -168,11 +164,11 @@ kube-system            metrics-server-5f8fcc9bb7-25ggv             1/1     Runni
 kube-system            storage-provisioner                         1/1     Running     5 (11h ago)   12h    
 kubernetes-dashboard   dashboard-metrics-scraper-5c6664855-rd7jj   1/1     Running     2 (11h ago)   12h    
 kubernetes-dashboard   kubernetes-dashboard-55c4cbbc7c-vz9zn       1/1     Running     3 (11h ago)   12h 
-'''
+```
 
 
-## Cleanup
-'''
+### Cleanup
+```
 # Delete the Bookinfo sample application and its configuration
 ~/work/istio-1.20.0/samples/bookinfo/platform/kube/cleanup.sh
 
@@ -182,4 +178,4 @@ kubectl delete -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gate
 
 kubectl delete -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
 
-'''
+```
