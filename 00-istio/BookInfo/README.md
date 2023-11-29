@@ -29,9 +29,11 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 ```
 
 ### Application Layout
-<p align="center">
+<p align="left">
   <img src="./kiali-dashboard-graph-traffic.png" width="50%" alt="Kiali Dashboard Graph Traffic">
-  <img src="./kiali-dashboard-graph-traffic.png" width="50%" alt="Kiali Dashboard Graph Traffic">
+</p>
+<p align="right">
+  <img src="./kiali-dashboard-workloads.png" width="50%" alt="Kiali Dashboard workloads">
 </p>
 
 ### Open the application to outside traffic
