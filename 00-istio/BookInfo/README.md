@@ -1,10 +1,29 @@
 ## Deploy Bookinfo sample application
-BookInfo is sample application with the following business capcabilites
-- Book review
-- Book Rating
-- Book Info / Products page
-- Book Details 
+BookInfo has the following 4 microservices 
+- productpage   - Book name and summary 
+- details       - Book Details like publisher name, year, language, ISBN 
+- reviews       - list of reviews of the book
+- ratings       - ratings of the book. reviews service of v2, v3 of loads ratings
 
+
+### Microservice code Flow 
+product - Main page
+
+```
+productpage >> details v1
+            >> reviews v1
+            >> reviews v2, v3 >> ratings v1
+
+
+The deployment will have the following K8 deployments/pods 
+- productpage-v1
+- details-v1
+- reviews-v1
+- reviews-v2
+- reviews-v3
+- ratings-v1
+
+```
 ### Tasks:
 - Deploy the app (Add contents??)
 - All the traffic from outside network
