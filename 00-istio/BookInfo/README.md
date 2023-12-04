@@ -24,17 +24,30 @@ The deployment will have the following K8 deployments/pods
 - ratings-v1
 
 ```
+
 ### Tasks:
 - Deploy the app (Add contents??)
 - All the traffic from outside network
 - View the telemetry / dashboard
 - Cleanup
 
+### Application Layout
+ <img src="./Images/kiali-dashboard-graph-traffic.png" width="45%" alt="Kiali Dashboard - Graph Traffic">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="./Images/kiali-dashboard-workloads.png" width="45%" alt="Kiali Dashboard - workloads">
+  <img src="./Images/kiali-dashboard-applications.png" width="45%" alt="Kiali Dashboard - Applications">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="./Images/kiali-dashboard-services.png" width="45%" alt="Kiali Dashboard - Services">
+</p><p align="center">
+
+
 ### Deploy Bookinfo App
 ```
 # Deploy the Bookinfo sample application. 
 # The application will start. As each pod becomes ready, the Istio sidecar will be deployed along with it.
-kubectl apply -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
+#kubectl apply -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f ./yaml-files/bookinfo.yaml
+
 
 # List services:
 kubectl get services
@@ -47,16 +60,6 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
  # Sample output: <title>Simple Bookstore App</title>
 ```
 
-### Application Layout
-<p align="center">
-  <img src="./kiali-dashboard-graph-traffic.png" width="45%" alt="Kiali Dashboard - Graph Traffic">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="./kiali-dashboard-workloads.png" width="45%" alt="Kiali Dashboard - workloads">
-  <img src="./kiali-dashboard-applications.png" width="45%" alt="Kiali Dashboard - Applications">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="./kiali-dashboard-services.png" width="45%" alt="Kiali Dashboard - Services">
-</p>
-
 
 ### Open the application to outside traffic
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
@@ -64,7 +67,8 @@ The Bookinfo application is deployed but not accessible from the outside. To mak
 ```
 # Associate this application with the Istio gateway:
 
-kubectl apply -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
+#kubectl apply -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply -f  ./yaml-files//bookinfo-gateway.yaml
  #gateway.networking.istio.io/bookinfo-gateway created
  #virtualservice.networking.istio.io/bookinfo created
 
@@ -113,7 +117,9 @@ echo "http://$GATEWAY_URL/productpage"
 ```
 # Install Kiali and the other addons and wait for them to be deployed.
 
-kubectl apply -f ~/work/istio-1.20.0/samples/addons
+#kubectl apply -f ~/work/istio-1.20.0/samples/addons
+kubectl apply -f ./yaml-files/addons
+
 kubectl rollout status deployment/kiali -n istio-system
 
 # send a some requests to the productpage service
