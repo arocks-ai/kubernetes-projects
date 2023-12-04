@@ -8,8 +8,8 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.0 TARGET_ARCH=x86_64
 
 # The installation directory contains Sample applications and  istioctl client binary in the bin/ directory.
 # Add the istioctl client to path
-cd istio-1.20.0
-export PATH=$PWD/bin:$PATH
+# cd istio-1.20.0 && export PATH=$PWD/bin:$PATH
+[[ ":$PATH:" != *":~/work/istio-1.20.0/bin:"* ]] && PATH="~/work/istio-1.20.0/bin:${PATH}"
 ```
 
 ### Install Istio

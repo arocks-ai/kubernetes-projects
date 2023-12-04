@@ -65,10 +65,13 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
 
 ```
+# Set path for istioctl if not set
+[[ ":$PATH:" != *":~/work/istio-1.20.0/bin:"* ]] && PATH="~/work/istio-1.20.0/bin:${PATH}"
+
 # Associate this application with the Istio gateway:
 
 #kubectl apply -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
-kubectl apply -f  ./yaml-files//bookinfo-gateway.yaml
+kubectl apply -f  ./yaml-files/bookinfo-gateway.yaml
  #gateway.networking.istio.io/bookinfo-gateway created
  #virtualservice.networking.istio.io/bookinfo created
 
@@ -217,13 +220,15 @@ kubernetes-dashboard   kubernetes-dashboard-55c4cbbc7c-vz9zn       1/1     Runni
 ### Cleanup
 ```
 # Delete the Bookinfo sample application and its configuration
-~/work/istio-1.20.0/samples/bookinfo/platform/kube/cleanup.sh
+ ./yaml-file/cleanup.sh
+ kubectl delete -f ./yaml-file/addons
+ kubectl delete -f ./yaml-file/bookinfo-gateway.yaml
+ kubectl delete -f ./yaml-file/bookinfo.yaml
 
-kubectl delete -f ~/work/istio-1.20.0/samples/addons
-
-kubectl delete -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
-
-kubectl delete -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
+# ~/work/istio-1.20.0/samples/bookinfo/platform/kube/cleanup.sh
+# kubectl delete -f ~/work/istio-1.20.0/samples/addons
+# kubectl delete -f  ~/work/istio-1.20.0/samples/bookinfo/networking/bookinfo-gateway.yaml
+# kubectl delete -f ~/work/istio-1.20.0/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 ### Reference links:
