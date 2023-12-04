@@ -32,13 +32,14 @@ The deployment will have the following K8 deployments/pods
 - Cleanup
 
 ### Application Layout
+<p align="center">
  <img src="./Images/kiali-dashboard-graph-traffic.png" width="45%" alt="Kiali Dashboard - Graph Traffic">
   &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="./Images/kiali-dashboard-workloads.png" width="45%" alt="Kiali Dashboard - workloads">
   <img src="./Images/kiali-dashboard-applications.png" width="45%" alt="Kiali Dashboard - Applications">
   &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="./Images/kiali-dashboard-services.png" width="45%" alt="Kiali Dashboard - Services">
-</p><p align="center">
+</p>
 
 
 ### Deploy Bookinfo App
