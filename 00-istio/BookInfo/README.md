@@ -123,10 +123,10 @@ echo "http://$GATEWAY_URL/productpage"
 
 #kubectl apply -f ~/work/istio-1.20.0/samples/addons
 kubectl apply -f ./yaml-files/addons
-
 kubectl rollout status deployment/kiali -n istio-system
 
 # send a some requests to the productpage service
+curl "http://$GATEWAY_URL/productpage"
 for i in $(seq 1 100); do curl -s -o /dev/null "http://$GATEWAY_URL/productpage"; done
 
 # Launch the dashboard
@@ -221,10 +221,10 @@ kubernetes-dashboard   kubernetes-dashboard-55c4cbbc7c-vz9zn       1/1     Runni
 ### Cleanup
 ```
 # Delete the Bookinfo sample application and its configuration
- ./yaml-file/cleanup.sh
- kubectl delete -f ./yaml-file/addons
- kubectl delete -f ./yaml-file/bookinfo-gateway.yaml
- kubectl delete -f ./yaml-file/bookinfo.yaml
+ ./yaml-files/cleanup.sh
+ kubectl delete -f ./yaml-files/addons
+ kubectl delete -f ./yaml-files/bookinfo-gateway.yaml
+ kubectl delete -f ./yaml-files/bookinfo.yaml
 
 # ~/work/istio-1.20.0/samples/bookinfo/platform/kube/cleanup.sh
 # kubectl delete -f ~/work/istio-1.20.0/samples/addons
