@@ -45,6 +45,9 @@ BookInfo application will be deployed in the default namespace.  Kiali and manag
 
 
 ### Deploy Bookinfo App
+- Make sure that each service and deployment inside yaml file has the label, "app"
+- This label will be used to track and display on the monitoring UI
+
 ```
 # Deploy the Bookinfo sample application. 
 # The application will start. As each pod becomes ready, the Istio sidecar will be deployed along with it.
