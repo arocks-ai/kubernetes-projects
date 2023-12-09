@@ -128,9 +128,9 @@ echo "http://$GATEWAY_URL/productpage"
 /addons directory has the required tools to monitor and view the microservices and their communication flows
 
 - prometheus - Monitoring the cluster like cpu, memory etc..
-- grafana - data visuvalization 
+- grafana - data visualization 
 - tracing - tracing the requests between mutliple microservices
-- jaeger - visualisze the tracing
+- jaeger - visualize the tracing
 - zipkin - another tool similar to jaeger (it is under addons/extras )
 - kiali - data visuvalization UI and setup for microservices communication
 

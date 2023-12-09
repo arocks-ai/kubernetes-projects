@@ -19,6 +19,8 @@ kubectl get destinationrules -o yaml
 
 ### Route to version 1
 Route the traffic to version 1 of the microservice. Traffic doesn't reach to other version of the MS 
+- productpage >> reviews:v1 (for everyone)
+
 ```
 # Deploy Virtual service to define route rules, all traffic to v1 of each microservice
 kubectl apply -f virtual-service-all-v1.yaml
@@ -26,6 +28,9 @@ kubectl apply -f virtual-service-all-v1.yaml
 
 ### Route based on the user Identity 
 Route the traffic coming from Jason users to version 2 of the review service. Other users will follow the above rule
+- productpage >> reviews:v2 >> ratings (only for user jason)
+- productpage >> reviews:v1 (for everyone else)
+
 ```
 # All traffic from a user named Jason will be routed to the service reviews:v2.
 kubectl apply -f virtual-service-reviews-test-v2.yaml
