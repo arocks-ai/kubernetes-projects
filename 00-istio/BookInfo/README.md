@@ -6,6 +6,7 @@ BookInfo has the following 4 microservices
 - ratings       - ratings of the book. reviews service of v2, v3 of loads ratings
 
 
+
 ### Microservice code Flow 
 product - Main page
 
@@ -22,16 +23,17 @@ The deployment will have the following K8 deployments/pods
 - reviews-v2
 - reviews-v3
 - ratings-v1
-
 ```
 
 ### Tasks:
-- Deploy the app (Add contents??)
+- Deploy the BookInfo microservice Application
 - All the traffic from outside network
 - View the telemetry / dashboard
 - Cleanup
 
 ### Application Layout
+BookInfo application will be deployed in the default namespace.  Kiali and managemnet related services will be deployed in istio-system namespace.
+
 <p align="center">
  <img src="./Images/kiali-dashboard-graph-traffic.png" width="45%" alt="Kiali Dashboard - Graph Traffic">
   &nbsp; &nbsp; &nbsp; &nbsp;
@@ -54,7 +56,9 @@ kubectl apply -f ./yaml-files/bookinfo.yaml
 kubectl get services
 
 # List pods:
-# Make sure there are two containers in every pod.kubectl get pods
+# Make sure there are two containers in every pod.
+# One container for microservice app, another one is for istio-proxy 
+kubectl get pods
 
 # Check if the app is running inside the cluster and serving HTML pages by checking for the page title in the response:
 kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS productpage:9080/productpage | grep -o "<title>.*</title>"
@@ -117,6 +121,16 @@ echo "http://$GATEWAY_URL/productpage"
 ```
 
 ### Telemetry - View the dashboard
+
+/addons directory has the required tools to monitor and view the microservices and their communication flows
+
+- prometheus - Monitoring the cluster like cpu, memory etc..
+- grafana - data visuvalization 
+- tracing - tracing the requests between mutliple microservices
+- jaeger - visualisze the tracing
+- zipkin - another tool similar to jaeger (it is under addons/extras )
+- kiali - data visuvalization UI and setup for microservices communication
+
 
 ```
 # Install Kiali and the other addons and wait for them to be deployed.
