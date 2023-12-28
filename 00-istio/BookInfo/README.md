@@ -96,7 +96,7 @@ set the INGRESS_HOST and INGRESS_PORT variables for accessing the gateway.
 # start a Minikube tunnel that sends traffic to your Istio Ingress Gateway. 
 # This will provide an external load balancer, EXTERNAL-IP, for service/istio-ingressgateway.
 
-minikube tunnel
+minikube tunnel   # needed for minikube
 
 #Set the ingress host and ports variables:
 export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')

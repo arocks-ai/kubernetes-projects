@@ -18,8 +18,12 @@ kubectl get destinationrules -o yaml
 ```
 
 ### Route to version 1
-Route the traffic to version 1 of the microservice. Traffic doesn't reach to other version of the MS 
+Route the traffic to version 1 of the microservice. Traffic doesn't reach to other version of the microservice
 - productpage >> reviews:v1 (for everyone)
+
+Flow: 
+  - Virtual Service yaml: http >> route >> destination >> host & subset
+  - Destination yaml: subsets >> labels >> version 
 
 ```
 # Deploy Virtual service to define route rules, all traffic to v1 of each microservice
